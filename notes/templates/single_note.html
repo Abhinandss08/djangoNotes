@@ -1,0 +1,7 @@
+{% extends 'main.html' %}
+{% block content %}
+<img src="{{ note_obj.upload_image.url }}">
+<p>{{ note_obj.upload_image.url }}</p>
+<h1>{{note_obj.title}}</h1>
+<p>{{note_obj.content}}</p>
+{% endblock %}
