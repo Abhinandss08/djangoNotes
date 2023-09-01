@@ -10,9 +10,21 @@
     {% for note in notes %}
     <tr>
         <td>{{note.title}}</td>
+        <td></td>
+        {% if note.owner == request.user %}
         <td><a href="{% url 'single-note' note.id %}">View</a></td>
+        <td></td>
         <td><a href="{% url 'update-note' note.id %}">Edit</a></td>
+        <td></td>
         <td><a href="{% url 'delete-note' note.id %}">Delete</a></td>
+        <td></td>
+        <td><b>{{note.owner}}</b></td>
+
+        {% else %}
+        <td><a href="{% url 'single-note' note.id %}">View</a></td>
+        <td></td>
+        <td><b>{{note.owner}}</b></td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

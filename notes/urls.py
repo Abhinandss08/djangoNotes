@@ -4,7 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.notes, name="notes"),
+    path('', views.loginUser, name="login"),
+    path('register/', views.registerUser, name="register"),
+    path('logout/', views.logoutUser, name="logout"),
+    path('notes/', views.notes, name="notes"),
     path('single-note/<str:pk>/', views.single_note, name="single-note"),
     path('create-note/', views.create_note, name="create-note"),
     path('update-note/<str:pk>/', views.update_note, name="update-note"),
