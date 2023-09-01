@@ -1,4 +1,16 @@
 <h1><b>Make your own notes</b></h1>
 <p>Notes Gallery</p>
+{% if request.user.is_authenticated %}
 <a href="{% url 'create-note' %}">Add Note</a>
+<a href="{% url 'logout' %}">Log-out</a>
+{% else %}
+<a href="{% url 'login' %}">Login/SignUp</a>
+{% endif %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert--{{message.tags}}">
+            <p style="color:red;" class="alert">{{message}}</p>
+        </div>
+    {% endfor %}
+{% endif %}
 <hr>
