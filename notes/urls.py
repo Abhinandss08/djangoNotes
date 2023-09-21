@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('api/', include('api.urls')),
     path('', views.loginUser, name="login"),
     path('register/', views.registerUser, name="register"),
     path('logout/', views.logoutUser, name="logout"),
